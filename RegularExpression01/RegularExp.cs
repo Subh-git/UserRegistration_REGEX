@@ -15,11 +15,24 @@ namespace RegularExpression01
             Regex regex = new Regex(firstName);
             if (regex.IsMatch(name))                               //calling the Regex class's functions
             {
+                Console.WriteLine(name + " is valid. Proceed to entering the Last Name");
+            }
+            else
+                Console.WriteLine(name + " is invalid. Please check your name and start with capital letter.");
+        }
+
+
+        public static void LastName(string name)                 //declaring the static meythod to take user's Last name as entry
+        {
+            string lastName = "^[A-Z]{1}[a-zA-Z]{2,}$";          //this regular exp shows that first letter must be capital, and minimum letter must be 3
+            Regex regex = new Regex(lastName);
+            if (regex.IsMatch(name))                             //calling the Regex class's functions
+            {
                 Console.WriteLine(name + " is valid");
             }
             else
-                Console.WriteLine(name + " is invalid. Please check your name and start with capital letter.");               
+                Console.WriteLine(name + " is invalid. Please check your name and start with capital letter.");
         }
-
     }
+    
 }
