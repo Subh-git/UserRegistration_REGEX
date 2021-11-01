@@ -69,6 +69,19 @@ namespace RegularExpression01
                 Console.WriteLine(name + " is invalid.");
         }
 
+        public static void Mobile(string name)
+        {
+            string mobile = "^([0-9]{2}[ ][0-9]{10})|([0-9]{3}[ ][0-9]{10})$";         //here both country codes with 2 or 3 numbers will be valid. other than that invalid.
+            Regex regex = new Regex(mobile);                                           //creating a regex named obj with regular exp mobile number.                        
+            
+            if (regex.IsMatch(name))
+            {
+                Console.WriteLine(name + " is valid. Proceed to enterring your password.");
+            }
+            else
+                Console.WriteLine(name + " is invalid.");
+        }
+
     }
     
 }
