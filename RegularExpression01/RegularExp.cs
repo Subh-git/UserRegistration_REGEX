@@ -82,6 +82,18 @@ namespace RegularExpression01
                 Console.WriteLine(name + " is invalid.");
         }
 
+        public static void PassWord(string name)
+        {
+            string pwd = "^[a-zA-Z0-9]{8,}$";
+            Regex regex = new Regex(pwd);                                           //creating a regex named obj with regular pwd.
+            if (regex.IsMatch(name))
+            {
+                Console.WriteLine(name + " is valid.");
+            }
+            else
+                Console.WriteLine(name + " is invalid.");
+        }
+
     }
     
 }
