@@ -28,7 +28,7 @@ namespace RegularExpression01
             Regex regex = new Regex(lastName);
             if (regex.IsMatch(name))                             //calling the Regex class's functions
             {
-                Console.WriteLine(name + " is valid.Proceed enterring your emailid.");
+                Console.WriteLine(name + " is valid.Proceed entering your emailid.");
             }
             else
                 Console.WriteLine(name + " is invalid. Please check your name and start with capital letter.");
@@ -63,7 +63,7 @@ namespace RegularExpression01
             Regex regex = new Regex(email);            //creating a regex named obj with regular exp email.                        
              if (regex.IsMatch(name))
              {
-                Console.WriteLine(name + " is valid. Proceed to enterring your mobile number.");
+                Console.WriteLine(name + " is valid. Proceed to entering your mobile number.");
              }
              else
                 Console.WriteLine(name + " is invalid.");
@@ -76,7 +76,7 @@ namespace RegularExpression01
             
             if (regex.IsMatch(name))
             {
-                Console.WriteLine(name + " is valid. Proceed to enterring your password.");
+                Console.WriteLine(name + " is valid. Proceed to entering your password.");
             }
             else
                 Console.WriteLine(name + " is invalid.");
