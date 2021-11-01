@@ -84,7 +84,7 @@ namespace RegularExpression01
 
         public static void PassWord(string name)
         {
-            string pwd = "^[a-zA-Z0-9]{8,}$";
+            string pwd = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
             Regex regex = new Regex(pwd);                                           //creating a regex named obj with regular pwd.
             if (regex.IsMatch(name))
             {
