@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegularExpression01", "RegularExpression01\RegularExpression01.csproj", "{C16D4CB1-EDC8-4AD0-9BE9-49762DC91110}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegularExpression01", "RegularExpression01\RegularExpression01.csproj", "{C16D4CB1-EDC8-4AD0-9BE9-49762DC91110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegularExpEmailTest", "RegularExpEmailTest\RegularExpEmailTest.csproj", "{7FBFADD4-7B35-431E-AFEB-FAD88505626A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C16D4CB1-EDC8-4AD0-9BE9-49762DC91110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C16D4CB1-EDC8-4AD0-9BE9-49762DC91110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C16D4CB1-EDC8-4AD0-9BE9-49762DC91110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FBFADD4-7B35-431E-AFEB-FAD88505626A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FBFADD4-7B35-431E-AFEB-FAD88505626A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FBFADD4-7B35-431E-AFEB-FAD88505626A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FBFADD4-7B35-431E-AFEB-FAD88505626A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
