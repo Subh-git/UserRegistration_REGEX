@@ -139,7 +139,7 @@ namespace RegularExpEmailTest
         [DataRow("6.abc@1.com")]
         [DataRow("7.abc@gmail.com.com")]
         [DataRow("8.abc+100@gmail.com")]
-        public void Testemail_Valid(string name)
+        public void Testemail_Valid(string name)                          //parameterised test for testing multiple email entries.
         {
             //Arrange
             string expected = "Valid";
