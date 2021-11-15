@@ -11,85 +11,115 @@ namespace RegularExpression01
     {
         public static string FirstName(string name)                   //declaring the static meythod to take user's first name as entry
         {
-            string firstName = "^[A-Z]{1}[a-zA-Z]{2,}$";            //this regular exp shows that first letter must be capital, and minimum letter must be 3
-            Regex regex = new Regex(firstName);
-            if (regex.IsMatch(name))                               //calling the Regex class's functions
+            string firstRegName = "^[A-Z]{1}[a-zA-Z]{2,}$";            //this regular exp shows that first letter must be capital, and minimum letter must be 3    
+            try
             {
-                return "Valid";
+                bool TestFirstName(string firstName) => (Regex.IsMatch(firstName, firstRegName));           //declaration of a method inside another method
+                bool output = TestFirstName(name);
+                if (output)                                //it true, then proceed
+                {
+                    return "Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
+                }
             }
-            else
-                return "Invalid";
+            catch(CustomException e)
+            {
+                throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
+            }           
+          
         }
-
-
         public static string LastName(string name)                 //declaring the static meythod to take user's Last name as entry
         {
-            string lastName = "^[A-Z]{1}[a-zA-Z]{2,}$";          //this regular exp shows that first letter must be capital, and minimum letter must be 3
-            Regex regex = new Regex(lastName);
-            if (regex.IsMatch(name))                             //calling the Regex class's functions
+            string lastRegName = "^[A-Z]{1}[a-zA-Z]{2,}$";          //this regular exp shows that first letter must be capital, and minimum letter must be 3
+            try
             {
-                return "Valid";
+                bool TestLastName(string lastName) => (Regex.IsMatch(lastName, lastRegName));           //declaration of a method inside another method
+                bool output = TestLastName(name);
+                if (output)                                //it true, then proceed
+                {
+                    return "Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
+                }
             }
-            else
-                return "Invalid";
+            catch (CustomException e)
+            {
+                throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
+            }
+
         }
-
-
-        //the following static method is to validate the user entered email id as per the genuine rules and test cases given
-        //public static string EmailArr(string[] name) //to check the array of email id's if needed.
-        //{
-        //    string email = @"^[a-zA-Z0-9]+[+-._]?[a-zA-Z0-9]*[+-._]?[a-zA-Z0-9]+@[a-zA-Z0-9]+[.]{1}[a-zA-Z]{2,3}[.]?[a-zA-Z]{0,3}$"; 
-        //    //the regular exp email sample.
-        //    //+ means one or more. *- zero or more. ?- zero or 1 
-
-        //    Regex regex = new Regex(email);            //creating a regex named obj with regular exp email.
-        //    foreach (var word in name)
-        //    {
-        //        if (regex.IsMatch(word))
-        //        {
-        //            return "is Valid.";
-        //        }
-        //    }
-        //    return "is Invalid";
-        //}
         public static string Email(string name)
         {
-            string email = @"^[a-zA-Z0-9]+[+-._]?[a-zA-Z0-9]*[+-._]?[a-zA-Z0-9]+@[a-zA-Z0-9]+[.]{1}[a-zA-Z]{2,3}[.]?[a-zA-Z]{0,3}$";
+            string emailReg = @"^[a-zA-Z0-9]+[+-._]?[a-zA-Z0-9]*[+-._]?[a-zA-Z0-9]+@[a-zA-Z0-9]+[.]{1}[a-zA-Z]{2,3}[.]?[a-zA-Z]{0,3}$";
             //the regular exp email sample.
             //+ means one or more. *- zero or more. ?- zero or 1 
+            try
+            {
+                bool TestEmail(string email) => (Regex.IsMatch(email, emailReg));           //declaration of a method inside another method
+                bool output = TestEmail(name);
+                if (output)                                //it true, then proceed
+                {
+                    return "Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
+                }
+            }
+            catch (CustomException e)
+            {
+                throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
+            }
 
-            Regex regex = new Regex(email);            //creating a regex named obj with regular exp email.                        
-             if (regex.IsMatch(name))
-             {
-                return "Valid";
-             }
-             else
-                return "Invalid";
         }
 
         public static string Mobile(string name)
         {
-            string mobile = "^([0-9]{2}[ ][0-9]{10})|([0-9]{3}[ ][0-9]{10})$";         //here both country codes with 2 or 3 numbers will be valid. other than that invalid.
-            Regex regex = new Regex(mobile);                                           //creating a regex named obj with regular exp mobile number.                        
-            
-            if (regex.IsMatch(name))
+            string mobileReg = "^([0-9]{2}[ ][0-9]{10})|([0-9]{3}[ ][0-9]{10})$";         //here both country codes with 2 or 3 numbers will be valid. other than that invalid.
+            try
             {
-                return "Valid";
+                bool TestMobile(string mobile) => (Regex.IsMatch(mobile, mobileReg));           //declaration of a method inside another method
+                bool output = TestMobile(name);
+                if (output)                                          //it true, then proceed
+                {
+                    return "Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
+                }
             }
-            else
-                return "Invalid";
+            catch (CustomException e)
+            {
+                throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
+            }
         }
 
         public static string PassWord(string name)
         {
-            string pwd = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$";
-            Regex regex = new Regex(pwd);                                           //creating a regex named obj with regular pwd.
-            if (regex.IsMatch(name))
+            string pwdReg = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$";
+            try
             {
-                return "Valid";
+                bool TestPassword(string pwd) => (Regex.IsMatch(pwd, pwdReg));           //declaration of a method inside another method
+                bool output = TestPassword(name);
+                if (output)                                //it true, then proceed
+                {
+                    return "Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
+                }
             }
-            else
-                return "Invalid";
+            catch (CustomException e)
+            {
+                throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
+            }
         }
 
     }
