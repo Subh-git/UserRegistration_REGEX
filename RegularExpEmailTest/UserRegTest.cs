@@ -25,15 +25,47 @@ namespace RegularExpEmailTest
         //The following test case should return Invalid
         public void TestFirstName_Invlaid()
         {
-            //Arrange
-            string fname = "Su";
-            string expected = "Invalid";                       //this returns invalid since the minimum letter in first name should be 3
+            try
+            {
+                //Arrange
+                string fname = "Su";
+                string expected = "Invalid";                       //this returns invalid since the minimum letter in first name should be 3
 
-            //Act
-            string reg = RegularExp.FirstName(fname);          //since sstatic methods so no need of class obj creation
+                //Act
+                string reg = RegularExp.FirstName(fname);          //since sstatic methods so no need of class obj creation
 
-            //Assert
-            Assert.AreEqual(expected, reg);
+                //Assert
+                Assert.AreEqual(expected, reg);
+
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual("Invalid", e.Message);
+            }            
+        }
+
+        [TestMethod]
+        //The following test case should return Invalid  as entry is null
+        public void TestFirstName_NullException()
+        {
+            string fname = null;
+            try
+            {
+                //Arrange
+               
+                string expected = "Invalid";                       //this returns invalid since the minimum letter in first name should be 3
+
+                //Act
+                string reg = RegularExp.FirstName(fname);          //since sstatic methods so no need of class obj creation
+
+                //Assert
+                expected.Equals(reg);
+
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual("Entry cannot be null", e.Message);
+            }
         }
 
         [TestMethod]
@@ -55,15 +87,47 @@ namespace RegularExpEmailTest
         //The following test case should return invalid Last name
         public void TestLastName_Invalid()
         {
-            //Arrange
-            string name = "bhattacharjee";                 //This returns invalid as the first letter is not capital
-            string expected = "Invalid";
+            try
+            {
+                //Arrange
+                string name = "bhattacharjee";                 //This returns invalid as the first letter is not capital
+                string expected = "Invalid";
 
-            //Act
-            string reg = RegularExp.LastName(name);          
+                //Act
+                string reg = RegularExp.LastName(name);
 
-            //Assert
-            Assert.AreEqual(expected, reg);
+                //Assert
+                Assert.AreEqual(expected, reg);
+
+            }
+            catch(CustomException e)
+            {
+                Assert.AreEqual("Invalid", e.Message);
+            }
+           
+        }
+        [TestMethod]
+        //The following test case should return excepiton as argument null
+        public void TestLastName_NullExeption()
+        {
+            try
+            {
+                //Arrange
+                string name = null;                 //This returns invalid as the first letter is not capital
+                string expected = "Invalid";
+
+                //Act
+                string reg = RegularExp.LastName(name);
+
+                //Assert
+                Assert.AreEqual(expected, reg);
+
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual("Entry cannot be null", e.Message);
+            }
+
         }
 
         [TestMethod]
@@ -82,18 +146,50 @@ namespace RegularExpEmailTest
         }
         [TestMethod]
 
-        //The following test case should return valid phone number
+        //The following test case should return invalid phone number
         public void TestPhoneNumber_Invalid()
         {
-            //Arrange
-            string name = "8596978965";                    //since there is no country code
-            string expected = "Invalid";
+            try
+            {
+                //Arrange
+                string name = "8596978965";                    //since there is no country code
+                string expected = "Invalid";
 
-            //Act
-            string reg = RegularExp.Mobile(name);          
+                //Act
+                string reg = RegularExp.Mobile(name);
 
-            //Assert
-            Assert.AreEqual(expected, reg);
+                //Assert
+                Assert.AreEqual(expected, reg);
+            }
+            catch(CustomException e)
+            {
+                Assert.AreEqual("Invalid", e.Message);
+            }
+          
+        }
+
+        [TestMethod]
+
+        //The following test case should return null exception
+        public void TestPhoneNumber_NullException()
+        {
+            try
+            {
+                //Arrange
+                string name = null;                    //since there is no country code
+                string expected = "Invalid";
+
+                //Act
+                string reg = RegularExp.Mobile(name);
+
+                //Assert
+                Assert.AreEqual(expected, reg);
+            }
+            catch (CustomException e)                          //Argument null exception
+            {
+                Assert.AreEqual("Entry cannot be null", e.Message);
+            }
+
         }
 
         [TestMethod]
@@ -110,19 +206,51 @@ namespace RegularExpEmailTest
             //Assert
             Assert.AreEqual(expected, reg);
         }
+
         [TestMethod]
-        //The following test case should return valid password
+        //The following test case should return invalid password
         public void TestPassword_Invalid()
         {
-            //Arrange
-            string name = "ADEdvfedaf";                     //Missing atleast one number, and special character
-            string expected = "Invalid";
+            try
+            {
+                //Arrange
+                string name = "ADEdvfedaf";                     //Missing atleast one number, and special character
+                string expected = "Invalid";
 
-            //Act
-            string reg = RegularExp.PassWord(name);
+                //Act
+                string reg = RegularExp.PassWord(name);
 
-            //Assert
-            Assert.AreEqual(expected, reg);
+                //Assert
+                Assert.AreEqual(expected, reg);
+
+            }
+            catch(CustomException e)
+            {
+                Assert.AreEqual("Invalid", e.Message);
+            }
+          
+        }
+
+        public void TestPassword_NullException()
+        {
+            try
+            {
+                //Arrange
+                string name = null;                     //Missing atleast one number, and special character
+                string expected = "Invalid";
+
+                //Act
+                string reg = RegularExp.PassWord(name);
+
+                //Assert
+                Assert.AreEqual(expected, reg);
+
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual("Entry cannot be null", e.Message);
+            }
+
         }
 
         [TestMethod]
@@ -168,14 +296,38 @@ namespace RegularExpEmailTest
         [DataRow("abc@gmail.com.aa.au")]
         public void Testemail_Invalid(string name)
         {
-            //Arrange
-            string expected = "Invalid";
+            try
+            {
+                //Arrange
+                string expected = "Invalid";
 
-            //Act
-            string reg = RegularExp.Email(name);
+                //Act
+                string reg = RegularExp.Email(name);
 
-            //Assert
-            Assert.AreEqual(expected, reg);
+                //Assert
+                Assert.AreEqual(expected, reg);
+
+            }
+            catch(CustomException e)
+            {
+                Assert.AreEqual("Invalid", e.Message);
+            }
+             
         } 
+
+        [TestMethod]
+        public void TestEmail_NullException()                   //argument null excewption
+        {
+            try
+            {
+                string email = null;
+                string reg = RegularExp.Email(email);
+                Assert.AreEqual("Valid", reg);
+            }
+            catch(CustomException e)
+            {
+                Assert.AreEqual("Entry cannot be null", e.Message);
+            }
+        }
     }
 }

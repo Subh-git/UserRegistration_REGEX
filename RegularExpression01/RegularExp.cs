@@ -14,7 +14,7 @@ namespace RegularExpression01
             string firstRegName = "^[A-Z]{1}[a-zA-Z]{2,}$";            //this regular exp shows that first letter must be capital, and minimum letter must be 3    
             try
             {
-                bool TestFirstName(string firstName) => (Regex.IsMatch(firstName, firstRegName));           //declaration of a method inside another method
+                bool TestFirstName(string firstName) => (Regex.IsMatch(firstName, firstRegName));           //declaration of a method inside another method lamda
                 bool output = TestFirstName(name);
                 if (output)                                //it true, then proceed
                 {
@@ -22,10 +22,13 @@ namespace RegularExpression01
                 }
                 else
                 {
-                    throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
+                    {
+                        throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
+                    }
                 }
             }
-            catch(CustomException e)
+
+            catch (ArgumentNullException)
             {
                 throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
             }           
@@ -47,7 +50,7 @@ namespace RegularExpression01
                     throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
                 }
             }
-            catch (CustomException e)
+            catch (ArgumentNullException)
             {
                 throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
             }
@@ -71,7 +74,7 @@ namespace RegularExpression01
                     throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
                 }
             }
-            catch (CustomException e)
+            catch (ArgumentNullException)
             {
                 throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
             }
@@ -94,7 +97,7 @@ namespace RegularExpression01
                     throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
                 }
             }
-            catch (CustomException e)
+            catch (ArgumentNullException)
             {
                 throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
             }
@@ -116,7 +119,7 @@ namespace RegularExpression01
                     throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid");         //throwing custom exceptions for handling invalid
                 }
             }
-            catch (CustomException e)
+            catch (ArgumentNullException)
             {
                 throw new CustomException(CustomException.ExceptionType.NULL_VALUE, "Entry cannot be null");     //throwing custom exceptions for handling null entry
             }
